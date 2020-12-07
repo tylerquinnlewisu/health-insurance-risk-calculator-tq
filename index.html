@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='UTF-8'>
-    <title>     HEALTH INSURANCE RISK CALCULATOR </title>
+    <title>     HEALTH INSURANCE RISH CALCULATOR </title>
 </head>
 <p></p>
 <p></p>
@@ -22,4 +22,839 @@
 
 -->
 
-<h1>hi</h1>
+
+
+
+<body>
+    <body style="background-color:#D5F1F1;">
+    
+        <style>
+        .Intro{
+            background-color: #F3F3F3;
+            border: 4px solid black;
+        }
+    
+        </style>
+    
+        <div class='Intro'>
+        <h1>HEALTH INSURANCE RISK CALCULATOR</h1>
+    
+        <br>
+        <h3>INSTRUCTIONS</h3>
+        <p>The following program is useful for classifying health insurance with respect to risk.</p>
+        <p>The risk of said individual is determined by their health as calculated by their body-mass index, blood pressure, age, and family history of disease.</p>
+        <p>To determine your total risk score, open the drop-down boxes and select the appropriate item for each question.</p>
+        <p>Then click on the button labeled 'Total Calculated Health Risk' to see your result.</p>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br /> <!-- Separating the instructions from the questions -->
+        <br />
+        <br />
+        <br />
+        <br />
+
+
+
+
+
+
+<!-- Identifying question 1 -->
+<label>What is the recipient's age?</label>
+
+<select id='question-age'>
+    <option value='0'>18 - 29 years of age</option>
+    <option value='10'>30 - 44 years of age</option>
+    <option value='20'>45 - 59 years of age</option>
+    <option value='30'>60 and over years old</option>
+</select>
+
+
+<br />
+<br />
+<button onclick = 'calculateAge()'>Calculate Risk Due to Age </button>
+    <p id='age'> </p>
+
+
+
+
+<!-- This marks the start of JavaScript code which holds all the functions -->
+<!-- This marks the start of JavaScript code which holds all the functions -->
+<!-- This marks the start of JavaScript code which holds all the functions -->
+<!-- This marks the start of JavaScript code which holds all the functions -->
+<script>
+
+    //Starting Health Insurance Risk Calculator
+
+    console.log('Starting Health Insurance Risk Calculator...');
+
+
+
+
+            
+    //The start of function which calculates risk due to age
+    function calculateAge() {
+        console.log('calculateAge()');
+
+        let questionAgeResponse = document.getElementById('question-age').selectedOptions[0].value;
+
+
+
+        console.log('Question 1 (Age) Answers:');
+        console.log(document.getElementById('question-age').selectedOptions[0].text);
+        console.log(document.getElementById('question-age').selectedOptions[0].value);
+        console.log(questionAgeResponse);
+
+
+
+        document.getElementById('age').innerHTML = 'Health risk for age is: - '+ questionAgeResponse +' . Where - 0 is the healthiest possible scenario.';
+
+
+    }
+
+
+
+
+
+
+
+
+    //The start of function which calculates risk due to weight
+    function calculateWeight() {
+        console.log('calculateWeight()');
+
+        let questionWeightResponse = document.getElementById('question-weight').selectedOptions[0].value;
+
+
+
+        console.log('Question 2 (Weight) Answers:');
+        console.log(document.getElementById('question-weight').selectedOptions[0].text);
+        console.log(document.getElementById('question-weight').selectedOptions[0].value);
+        console.log(questionWeightResponse);
+
+
+
+        document.getElementById('weight').innerHTML = 'Weight in Kg is: '+ questionWeightResponse +'';
+
+
+    }
+
+
+
+
+
+
+
+    //The start of function which calculates risk due to height
+    function calculateHeight() {
+            console.log('calculateHeight()');
+
+            let questionHeightResponse = document.getElementById('question-height').selectedOptions[0].value;
+
+
+            console.log('Question 3 (Height) Answers:');
+            console.log(document.getElementById('question-height').selectedOptions[0].text);
+            console.log(document.getElementById('question-height').selectedOptions[0].value);
+            console.log(questionHeightResponse);
+
+
+
+            document.getElementById('height').innerHTML = 'Height is: '+ questionHeightResponse +' ';
+
+
+    }
+
+
+
+
+    //The start of function which calculates BMI
+
+    function calculateBMI() {
+
+
+            let questionWeightResponse = document.getElementById('question-weight').selectedOptions[0].value;
+
+
+            let questionHeightResponse = document.getElementById('question-height').selectedOptions[0].value;
+
+
+            let bmiNonConverted = Math.abs((questionWeightResponse)/(questionHeightResponse * questionHeightResponse));
+
+
+            let bmiConverted = Math.abs(bmiNonConverted * 703);
+
+        
+
+
+            document.getElementById('bmi').innerHTML = 'BMI is: '+ Math.abs(bmiConverted) +' ';
+
+
+
+    }
+
+
+
+
+
+
+    //The start of function which calculates risk due to blood pressure
+    function calculateBloodPressure() {
+            console.log('calculateBloodPressure()');
+
+            let questionBloodPressureResponse = document.getElementById('question-bloodpressure').selectedOptions[0].value;
+
+
+
+            console.log('Question (Blood Pressure) Answers:');
+            console.log(document.getElementById('question-bloodpressure').selectedOptions[0].text);
+            console.log(document.getElementById('question-bloodpressure').selectedOptions[0].value);
+            console.log(questionBloodPressureResponse);
+
+
+
+            document.getElementById('bloodpressure').innerHTML = 'Health risk for blood pressure is: - '+ questionBloodPressureResponse +' . Where - 0 is the healthiest possible scenario.';
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+    //The start of function which calculates risk due to family history of diabetes
+    function calculateDiabetes() {
+                console.log('calculateDiabetes()');
+
+                let questionDiabetesResponse = document.getElementById('question-diabetes').selectedOptions[0].value;
+
+
+
+                console.log('Question (Diabetes) Answers:');
+                console.log(document.getElementById('question-diabetes').selectedOptions[0].text);
+                console.log(document.getElementById('question-diabetes').selectedOptions[0].value);
+                console.log(questionDiabetesResponse);
+
+
+
+                document.getElementById('diabetes').innerHTML = 'Health risk for family history of diabetes is: - '+ questionDiabetesResponse +' . Where - 0 is the healthiest possible scenario.';
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+    //The start of function which calculates risk due to family history of cancer
+    function calculateCancer() {
+                    console.log('calculateCancer()');
+
+                    let questionCancerResponse = document.getElementById('question-cancer').selectedOptions[0].value;
+
+
+
+                    console.log('Question (Cancer) Answers:');
+                    console.log(document.getElementById('question-cancer').selectedOptions[0].text);
+                    console.log(document.getElementById('question-cancer').selectedOptions[0].value);
+                    console.log(questionCancerResponse);
+
+
+
+                    document.getElementById('cancer').innerHTML = 'Health risk for family history of cancer is: - '+ questionCancerResponse +' . Where - 0 is the healthiest possible scenario.';
+
+
+    }
+
+
+
+
+
+
+
+    //The start of function which calculates risk due to family history of alzheimers
+    function calculateAlzheimers() {
+                    console.log('calculateAlzheimers()');
+
+                    let questionAlzheimersResponse = document.getElementById('question-alzheimers').selectedOptions[0].value;
+
+
+
+                    console.log('Question (Alzheimers) Answers:');
+                    console.log(document.getElementById('question-alzheimers').selectedOptions[0].text);
+                    console.log(document.getElementById('question-alzheimers').selectedOptions[0].value);
+                    console.log(questionAlzheimersResponse);
+
+
+
+                    document.getElementById('alzheimers').innerHTML = 'Health risk for family history of alzheimers is: - '+ questionAlzheimersResponse +' . Where - 0 is the healthiest possible scenario.';
+
+
+    }
+
+
+
+
+
+
+
+
+    //The start of function which calculates BMI
+
+    function calculateInfoBMI() {
+
+
+        let questionWeightResponse = document.getElementById('question-weight').selectedOptions[0].value;
+
+
+        let questionHeightResponse = document.getElementById('question-height').selectedOptions[0].value;
+
+
+        let bmiNonConverted = Math.abs((questionWeightResponse)/(questionHeightResponse * questionHeightResponse));
+
+
+        let bmiConverted = Math.abs(bmiNonConverted * 703);
+
+
+
+        document.getElementById('infobmi').innerHTML = 'BMI is: '+ Math.abs(bmiConverted) +' ';
+
+
+
+}
+
+
+
+
+
+
+
+
+
+    //The start of function which calculates total risk
+    function calculateTotalRisk() {
+                    console.log('calculateTotalRisk()');
+
+                
+
+                    let questionAgeResponse = document.getElementById('question-age').selectedOptions[0].value;
+
+
+
+                    let questionBloodPressureResponse = document.getElementById('question-bloodpressure').selectedOptions[0].value;
+
+
+                    let questionDiabetesResponse = document.getElementById('question-diabetes').selectedOptions[0].value;
+
+
+                    let questionCancerResponse = document.getElementById('question-cancer').selectedOptions[0].value;
+
+
+                    let questionAlzheimersResponse = document.getElementById('question-alzheimers').selectedOptions[0].value;
+
+
+
+                    let questionWeightResponse = document.getElementById('question-weight').selectedOptions[0].value;
+
+
+                    let questionHeightResponse = document.getElementById('question-height').selectedOptions[0].value;
+
+
+                    let bmiNonConverted = Math.abs((questionWeightResponse)/(questionHeightResponse * questionHeightResponse));
+
+
+                    let bmiConverted = Math.abs(bmiNonConverted * 703);
+
+                    if (Number(bmiConverted) > 30.0) {
+                        let bmiInfo = 75
+                    } else {
+                        let bmiInfo = 0
+                    }; 
+
+
+
+
+
+
+
+
+
+                    let questionTotalRiskResponse = Math.abs(questionAgeResponse) + Math.abs(questionBloodPressureResponse) + Math.abs(questionDiabetesResponse) + Math.abs(questionCancerResponse) + Math.abs(questionAlzheimersResponse) + Math.abs((bmiConverted)/6);
+
+
+
+
+                    //let questionTotalRiskResponse = (questionAgeResponse + questionBloodPressureResponse + questionDiabetesResponse + questionCancerResponse + questionAlzheimersResponse)/100000
+
+
+
+
+                    document.getElementById('totalrisk').innerHTML = 'The total calculated risk is: '+ questionTotalRiskResponse;
+
+
+                
+
+                  // if (Number(questionTotalRiskResponse) <= 20) {
+                   //    alert('Score is Equal to or Under 20; Low Total Risk');
+                   //}
+
+
+                   //if (Number(questionTotalRiskResponse) <= 50) {
+                    //   alert('Score is Equal to or Under 50; Moderate Total Risk')
+                  // }
+
+
+                   //if (Number(questionTotalRiskResponse) <= 75) {
+                      // alert('Score is Equal to or Under 75; High Total Risk')
+                   //}
+
+
+
+                   if (Number(questionTotalRiskResponse) > 75) {
+                       alert('Score is Over 75; Uninsurable')
+                   } else if (Number(questionTotalRiskResponse) > 50) {
+                       alert('Score is Equal to or Under 75; High Total Risk')
+                   } else if (Number(questionTotalRiskResponse) > 20) {
+                       alert('Score is Equal to or Under 50; Moderate Total Risk')
+                   } else if (Number(questionTotalRiskResponse) <= 20) {
+                       alert('Score is Equal to or Under 20; Low Total Risk');
+                   }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- Separating the questions from one another -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<!-- Identifying question 2 -->
+<label>What is the recipient's weight?</label>
+
+<select id='question-weight'>
+    <option value='110'>100ibs - 110ibs</option>
+    <option value='120'>111ibs - 120ibs</option>
+    <option value='130'>121ibs - 130ibs</option>
+    <option value='140'>131ibs - 140ibs</option>
+    <option value='160'>151ibs - 160ibs</option>
+    <option value='180'>171ibs - 180ibs</option>
+    <option value='190'>181ibs - 190ibs</option>
+    <option value='200'>191ibs - 200ibs</option>
+    <option value='210'>201ibs - 210ibs</option>
+    <option value='220'>211ibs - 220ibs</option>
+    <option value='230'>221ibs - 230ibs</option>
+    <option value='250'>241ibs - 250ibs</option>
+    <option value='260'>251ibs - 260ibs</option>
+    <option value='270'>261ibs - 270ibs</option>
+    <option value='280'>271ibs - 280ibs</option>
+    <option value='290'>281ibs - 290ibs</option>
+    <option value='300'>291ibs - 300ibs+</option>
+</select>
+
+<br />
+<br />
+<!-- <button onclick = 'calculateWeight()'>Calculate Weight in Kg</button>
+    <p id='weight'> </p> -->
+
+
+
+
+
+<script>
+
+
+//The start of function which calculates risk due to weight
+//function calculateWeight() {
+        //console.log('calculateWeight()');
+
+        //let questionWeightResponse = document.getElementById('question-weight').selectedOptions[0].value;
+
+
+
+        //console.log('Question 2 (Weight) Answers:');
+        //console.log(document.getElementById('question-weight').selectedOptions[0].text);
+        //console.log(document.getElementById('question-weight').selectedOptions[0].value);
+        //console.log(questionWeightResponse);
+
+
+
+        //document.getElementById('weight').innerHTML = 'Weight is: '+ questionWeightResponse +'';
+
+
+  //  }
+
+</script>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- Separating the questions from one another -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+<!-- Identifying question 3-->
+<label>What is the recipient's height?</label>
+
+<select id='question-height'>
+    <option value='42'>3'6"</option>
+    <option value='43'>3'7"</option>
+    <option value='44'>3'8"</option>
+    <option value='45'>3'9"</option>
+    <option value='46'>3'10"</option>
+    <option value='47'>3'11"</option>
+    <option value='48'>4'</option>
+    <option value='49'>4'1"</option>
+    <option value='50'>4'2"</option>
+    <option value='51'>4'3"</option>
+    <option value='52'>4'4"</option>
+    <option value='53'>4'5"</option>
+    <option value='54'>4'6"</option>
+    <option value='55'>4'7"</option>
+    <option value='56'>4'8"</option>
+    <option value='57'>4'9"</option>
+    <option value='58'>4'10"</option>
+    <option value='59'>4'11"</option>
+    <option value='60'>5'</option>
+    <option value='61'>5'1"</option>
+    <option value='62'>5'2"</option>
+    <option value='63'>5'3"</option>
+    <option value='64'>5'4"</option>
+    <option value='65'>5'5"</option>
+    <option value='66'>5'6"</option>
+    <option value='67'>5'7"</option>
+    <option value='68'>5'8"</option>
+    <option value='69'>5'9"</option>
+    <option value='70'>5'10"</option>
+    <option value='71'>5'11"</option>
+    <option value='72'>6'</option>
+    <option value='73'>6'1"</option>
+    <option value='74'>6'2"</option>
+    <option value='75'>6'3"</option>
+    <option value='76'>6'4"</option>
+    <option value='77'>6'5"</option>
+    <option value='78'>6'6"</option>
+    <option value='79'>6'7"</option>
+    <option value='80'>6'8"</option>
+    <option value='81'>6'9"</option>
+    <option value='82'>6'10"</option>
+    <option value='83'>6'11"</option>
+    <option value='84'>7'+</option>
+  
+</select>
+
+<br />
+<br />
+<!--   <button onclick = 'calculateHeight()'>Calculate Height in Meters Squared </button>
+    <p id='height'> </p>   -->
+
+
+<script>
+
+    //The start of function which calculates risk due to height
+    //function calculateHeight() {
+            //console.log('calculateHeight()');
+
+            //let questionHeightResponse = document.getElementById('question-height').selectedOptions[0].value;
+
+
+            //console.log('Question 3 (Height) Answers:');
+            //console.log(document.getElementById('question-height').selectedOptions[0].text);
+            //console.log(document.getElementById('question-height').selectedOptions[0].value);
+            //console.log(questionHeightResponse);
+
+
+
+            //document.getElementById('height').innerHTML = 'Height is: '+ questionHeightResponse +' ';
+
+
+   // }
+
+</script>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- Separating the questions from one another -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<button onclick = 'calculateBMI()'>Calculate BMI </button>
+    <p id='bmi'> </p>
+
+<br>
+<br>
+
+
+<!--<button onclick = 'calculateInfoBMI()'>What Does My BMI Mean? </button>
+    <p id='infobmi'> </p>-->
+
+
+<script>
+
+  //The start of function which calculates BMI
+
+  //function calculateBMI() {
+
+
+        
+
+            //document.getElementById('bmi').innerHTML = 'BMI is: '+ questionAgeResponse +' ';
+
+
+    //}
+
+
+
+
+</script>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- Separating the questions from one another -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<!-- Identifying question 4 -->
+<label>What is the recipient's blood pressure?</label>
+
+<select id='question-bloodpressure'>
+    <option value='0'>SYSTLOLIC mm Hg (upper number) is less than 120 and DIASTOLIC mm Hg (lower number) is less than 80.</option>
+    <option value='15'>SYSTLOLIC mm Hg (upper number) is between 120 and 129 and DIASTOLIC mm Hg (lower number) is less than 80.</option>
+    <option value='30'>SYSTLOLIC mm Hg (upper number) is between 130 and 139 or DIASTOLIC mm Hg (lower number) is between 80 and 89.</option>
+    <option value='75'>SYSTLOLIC mm Hg (upper number) is 140 or higher or DIASTOLIC mm Hg (lower number) is 90 or higher.</option>
+    <option value='100'>SYSTLOLIC mm Hg (upper number) is higher than 180 and/or DIASTOLIC mm Hg (lower number) is higher than 120.</option>
+</select>
+
+
+<br />
+<br />
+<button onclick = 'calculateBloodPressure()'>Calculate Risk Due to Blood Pressure </button>
+    <p id='bloodpressure'> </p>
+
+
+
+<script>
+
+
+
+
+    //The start of function which calculates risk due to blood pressure
+    //function calculateBloodPressure() {
+            //console.log('calculateBloodPressure()');
+
+            //let questionBloodPressureResponse = document.getElementById('question-bloodpressure').selectedOptions[0].value;
+
+
+
+            //console.log('Question (Blood Pressure) Answers:');
+            //console.log(document.getElementById('question-bloodpressure').selectedOptions[0].text);
+            //console.log(document.getElementById('question-bloodpressure').selectedOptions[0].value);
+            //console.log(questionBloodPressureResponse);
+
+
+
+            //document.getElementById('bloodpressure').innerHTML = 'Health risk for blood pressure is: - '+ questionBloodPressureResponse +' . Where - 0 is the healthiest possible scenario.';
+
+
+    //}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- Separating the questions from one another -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+<!-- Identifying question diabetes -->
+<label>Does the recipient's family have a history of diabetes?</label>
+
+<select id='question-diabetes'>
+    <option value='10'>Yes</option>
+    <option value='0'>No</option>
+</select>
+
+<br />
+<br />
+<button onclick = 'calculateDiabetes()'>Health Risk of Family History of Diabetes</button>
+    <p id='diabetes'> </p> 
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- Separating the questions from one another -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+<!-- Identifying question cancer -->
+<label>Does the recipient's family have a history of cancer?</label>
+
+<select id='question-cancer'>
+    <option value='10'>Yes</option>
+    <option value='0'>No</option>
+</select>
+
+<br />
+<br />
+<button onclick = 'calculateCancer()'>Health Risk of Family History of Cancer</button>
+    <p id='cancer'> </p> 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- Separating the questions from one another -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+<!-- Identifying question alzheimers -->
+<label>Does the recipient's family have a history of alzheimers?</label>
+
+<select id='question-alzheimers'>
+    <option value='10'>Yes</option>
+    <option value='0'>No</option>
+</select>
+
+<br />
+<br />
+<button onclick = 'calculateAlzheimers()'>Health Risk of Family History of Alzheimers</button>
+    <p id='alzheimers'> </p> 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><!-- Separating the questions from one another -->
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<!-- Identifying question total risk -->
+
+<br />
+<br />
+<button onclick = 'calculateTotalRisk()'>Total Calculated Health Risk</button>
+    <p id='totalrisk'> </p> 
+
+
+<br />
+<br />
+
+<style>
+    h1 {text-align: center;}
+    h3 {text-align: center;}
+    p {text-align: center;}
+    label {color: slateblue;}
+</style>
+
+
+<!-- End of Body and HTML --> 
+</body>
+
+
+</html>
